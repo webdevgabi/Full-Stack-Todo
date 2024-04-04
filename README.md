@@ -16,7 +16,8 @@ Finally you can start the application, which must be done on both client and bac
 
 ## What i used
 - **Backend:**
-    - cors 2.8.5 ([official documentation](https://www.npmjs.com/package/cors))
-    - express 4.19.2 ([official documentation](https://expressjs.com/))
-    - mongodb 6.5.0 ([official documentation](https://www.mongodb.com/docs/drivers/node/current/))
-    - nodemon 3.1.0 ([official documentation](https://nodemon.io/))
+    - CORS 2.8.5 ([official documentation](https://www.npmjs.com/package/cors))
+    - Express 4.19.2 ([official documentation](https://expressjs.com/))
+    - MongoDB 6.5.0 ([official documentation](https://www.mongodb.com/docs/drivers/node/current/))
+    - Nodemon 3.1.0 ([official documentation](https://nodemon.io/))
+    - Bcrypt 5.1.1 ([official documentation](https://www.npmjs.com/package/bcrypt))
