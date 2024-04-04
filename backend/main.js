@@ -12,4 +12,7 @@ app.use(cors())
 const registerRoute = require("./routes/register");
 app.use('/register', registerRoute)
 
+const loginRoute = require("./routes/login");
+app.use('/login', loginRoute)
+
 app.listen(3000, () => console.log("http//localhost:3000"))

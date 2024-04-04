@@ -3,22 +3,16 @@ const { MongoClient } = require('mongodb');
 //CONFIG
 const connectionString = require('../../config/connectionString')
 
-module.exports = async ({ collection, data, field }) => {
+module.exports = async ({ collection, data, condition }) => {
 
     try {
         // CONNECT
         const client = await new MongoClient(connectionString).connect();
         const db = client.db('todo').collection(collection);
 
-        // FIND
-        const result = await db.find({ [field]: data }).toArray();
-        
-        if(result.length > 0){
-            return result
-        }
-
-        return false
-
+        // UPDATE
+        const result = await db.updateOne(condition, { $set: data });
+        return true;
 
     } catch (err) { return false }
     
