@@ -1,12 +1,15 @@
 const express = require('express');
 const cors = require('cors')
 
+const connection = require("./utilities/db/connection")
+
 const app = express();
 
 // SETTINGS
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cors())
+connection()
 
 // ROUTES
 const registerRoute = require("./routes/register");
