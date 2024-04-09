@@ -18,4 +18,7 @@ app.use('/register', registerRoute)
 const loginRoute = require("./routes/login");
 app.use('/login', loginRoute)
 
+const taskRoute = require("./routes/task");
+app.use('/task', taskRoute)
+
 app.listen(3000, () => console.log("http//localhost:3000"))

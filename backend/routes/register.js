@@ -1,21 +1,15 @@
-const express = require('express');
-const bcrypt = require('bcrypt');
+const router = require('express').Router();
 
-// UTILITIES - DB
 const insert = require("../utilities/db/insert")
-
-// UTILITIES - VALIDATION
-const validation = require("../utilities/validation")
-
-const router = express.Router();
+const validation = require("../utilities/validation/")
+const userTemplate = require("../utilities/template/user")
 
 router.use(validation)
 
 router.post("/", async (req, res) => {
 
-    req.body.password = await bcrypt.hash(req.body.password, 10);
-
-    const isInserted = await insert({ collection: "users", data: {...req.body, token: ''} })
+    const user = await userTemplate(req.body)
+    const isInserted = await insert({ collection: "users", data: user })
 
     isInserted ? 
     res.json({ server: ["Successful registration"] }) :

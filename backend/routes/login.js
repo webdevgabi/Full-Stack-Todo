@@ -1,30 +1,19 @@
-const express = require('express');
-const bcrypt = require('bcrypt')
+const router = require('express').Router();
 
-// UTILITIES - DB
-const find = require('../utilities/db/find')
+const userByEmail = require('../utilities/middleware/getUserByEmail')
+const isPasswordCorrect = require("../utilities/middleware/isPasswordCorrect")
 const update = require('../utilities/db/update')
-
-// UTILITIES
 const tokenGenerator = require("../utilities/tokenGenerator")
 
-const router = express.Router();
+router.use(userByEmail)
+router.use(isPasswordCorrect)
+
 router.post("/", async (req, res) => {
 
-    const userByEmail = await find({ collection: 'users', field: 'email', data: req.body.email })
-    if(!userByEmail) {
-        res.status(422).json({ validation: { email: ["No user found at the email address"] } })
-        return;
-    }
-
-    const isCorrectPassword = await bcrypt.compare(req.body.password, userByEmail[0].password)
-    if(!isCorrectPassword) {
-        res.status(422).json({ validation: { password: ["Wrong password"] } })
-        return;
-    }
-
+    const { user } = req.headers
     const token = await tokenGenerator();
-    await update({ collection: 'users', condition: { _id: userByEmail[0]._id }, data: { token: token } })
+    
+    await update({ collection: 'users', condition: { _id: user._id }, data: { token: token } })
     res.json({ token: [token] })
 
 })
