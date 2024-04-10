@@ -12,4 +12,7 @@ router.use('/register', registerRoute)
 const deleteRoute = require("./delete");
 router.use('/delete', deleteRoute)
 
+const updateRoute = require("./update");
+router.use('/update', updateRoute)
+
 module.exports = router;

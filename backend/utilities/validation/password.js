@@ -4,12 +4,12 @@ const smallCharacterRegex = /[a-z]/;
 const specialCharacterRegex = /[\W]/;
 const numberCharacterRegex = /\d/;
 
-module.exports = async (input) => {
+module.exports = async (input, required = true) => {
 
     const errors = [];
 
     if(!input){
-        return ["Required to enter password"]
+        return required && ["Required to enter password"]
     }
 
     const is8Character = input.length > 7

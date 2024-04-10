@@ -1,7 +1,7 @@
-module.exports = (input) => {
+module.exports = (input, required = true) => {
 
     if(!input){
-        return ["Required to enter a name"]
+        return required && ["Required to enter a name"]
     }
 
     const is4Character = input.length > 3

@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const { ObjectId } = require('mongodb')
 
 const getUserByToken = require("../../utilities/middleware/getUserByToken")
 router.use(getUserByToken)

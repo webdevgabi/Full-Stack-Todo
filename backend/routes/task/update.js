@@ -2,7 +2,7 @@ const { ObjectId } = require('mongodb')
 const router = require('express').Router();
 
 const update = require("../../utilities/db/update");
-const updateData = require('../../utilities/template/updateData');
+const updateTask = require('../../utilities/template/updateTask');
 const isId = require('../../utilities/middleware/isId');
 
 router.use(isId)
@@ -15,7 +15,7 @@ router.put("/", async (req, res) => {
     const isUpdated = await update({ 
         collection: "tasks", 
         condition: { _id: new ObjectId(id), ownerID: new ObjectId(_id) }, 
-        data: updateData(req.body)
+        data: updateTask(req.body)
     })
 
     isUpdated ? 
