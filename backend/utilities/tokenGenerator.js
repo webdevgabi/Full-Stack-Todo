@@ -11,7 +11,7 @@ const tokenGenerator = async () => {
     while(isUnique) {
         for (let i = 0; i < 50; i++) hash += myString[Math.floor(Math.random() * myString.length)];
 
-        const isUniqueToken = await find({ collection: 'users', field: 'token', data: hash });
+        const isUniqueToken = await find({ collection: 'users', condition: { token: hash } });
 
         if(!isUniqueToken) {
             isUnique = false;

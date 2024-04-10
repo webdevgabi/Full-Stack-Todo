@@ -3,7 +3,12 @@ module.exports = async ({ collection, data, condition }) => {
 
     try {
         const db = global.db.collection(collection);
-        await db.updateOne(condition, { $set: data });
+        const isUpdated = await db.updateOne(condition, { $set: data });
+
+        if(isUpdated.matchedCount === 0) {
+            return false
+        }
+
         return true;
 
     } catch (err) { return false }

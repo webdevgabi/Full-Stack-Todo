@@ -1,13 +1,15 @@
 const router = require('express').Router();
 
-const isTasks = require('../../utilities/middleware/isTasks');
+const find = require('../../utilities/db/find')
 
-router.use(isTasks)
+router.get("/", async (req, res) => {
+    
+    const { _id } = req.headers.user;
+    const isTasks = await find({collection: "tasks", condition: { ownerId: _id } })
 
-router.get("/", (req, res) => {
-    const { tasks } = req.headers.user;
-
-    res.json({tasks: tasks})
+    isTasks ? 
+    res.json({tasks: isTasks}) :
+    res.status(404).json({ server: ["no task"] })
 })
 
 module.exports = router;

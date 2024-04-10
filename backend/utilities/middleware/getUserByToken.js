@@ -7,7 +7,7 @@ module.exports = async (req, res, next) => {
         return; 
     }
 
-    const user = await find({ collection: 'users', field: 'token', data: req.headers.authorization })
+    const user = await find({ collection: 'users', condition: { token: req.headers.authorization } })
     
     if(!user) {
         res.status(422).json({ token: ["The token is not valid"] })

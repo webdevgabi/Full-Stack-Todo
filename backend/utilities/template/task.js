@@ -1,10 +1,11 @@
-module.exports = (data) => {
+module.exports = (data, id) => {
     const { title, descripiton, priorityLevel, deadline, progress } = data;
 
     let task = {
         title: title,
         priorityLevel: priorityLevel,
-        progress: progress
+        progress: progress,
+        ownerID: id
     }
 
     if(deadline) {

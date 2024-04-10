@@ -7,7 +7,6 @@ module.exports = async (data) => {
         name: name,
         email: email,
         password: await bcrypt.hash(password, 10),
-        tasks: [],
         token: ''
     }
 }

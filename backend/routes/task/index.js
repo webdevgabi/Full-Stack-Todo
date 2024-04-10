@@ -10,4 +10,7 @@ router.use('/add', addRoute)
 const listRoute = require("./list");
 router.use('/list', listRoute)
 
+const updateRoute = require("./update");
+router.use('/update', updateRoute)
+
 module.exports = router;
