@@ -21,3 +21,6 @@ Finally you can start the application, which must be done on both client and bac
     - MongoDB 6.5.0 ([official documentation](https://www.mongodb.com/docs/drivers/node/current/))
     - Nodemon 3.1.0 ([official documentation](https://nodemon.io/))
     - Bcrypt 5.1.1 ([official documentation](https://www.npmjs.com/package/bcrypt))
+- **Frontend:**
+    - Vite 5.2.0 ([documentation](https://vitejs.dev/))
+    - React 18.2.0 ([documentation](https://legacy.reactjs.org/))
