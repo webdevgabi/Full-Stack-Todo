@@ -12,13 +12,11 @@ app.use(cors())
 connection()
 
 // ROUTES
-const registerRoute = require("./routes/register");
-app.use('/register', registerRoute)
+const taskRoute = require("./routes/task/");
+app.use('/tasks', taskRoute)
 
-const loginRoute = require("./routes/login");
-app.use('/login', loginRoute)
+const userRoute = require("./routes/user/");
+app.use('/user', userRoute)
 
-const taskRoute = require("./routes/task");
-app.use('/task', taskRoute)
 
 app.listen(3000, () => console.log("http//localhost:3000"))

@@ -1,8 +1,8 @@
 const router = require('express').Router();
 
-const insert = require("../utilities/db/insert")
-const validation = require("../utilities/validation/")
-const userTemplate = require("../utilities/template/user")
+const insert = require("../../utilities/db/insert")
+const validation = require("../../utilities/validation")
+const userTemplate = require("../../utilities/template/user")
 
 router.use(validation)
 

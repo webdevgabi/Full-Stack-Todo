@@ -1,9 +1,9 @@
 const router = require('express').Router();
 
-const userByEmail = require('../utilities/middleware/getUserByEmail')
-const isPasswordCorrect = require("../utilities/middleware/isPasswordCorrect")
-const update = require('../utilities/db/update')
-const tokenGenerator = require("../utilities/tokenGenerator")
+const userByEmail = require('../../utilities/middleware/getUserByEmail')
+const isPasswordCorrect = require("../../utilities/middleware/isPasswordCorrect")
+const update = require('../../utilities/db/update')
+const tokenGenerator = require("../../utilities/tokenGenerator")
 
 router.use(userByEmail)
 router.use(isPasswordCorrect)

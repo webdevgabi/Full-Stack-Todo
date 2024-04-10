@@ -7,8 +7,8 @@ router.use(getUserByToken)
 const addRoute = require("./add");
 router.use('/add', addRoute)
 
-const listRoute = require("./list");
-router.use('/list', listRoute)
+const getRoute = require("./get");
+router.use('/', getRoute)
 
 const updateRoute = require("./update");
 router.use('/update', updateRoute)
