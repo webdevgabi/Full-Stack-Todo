@@ -24,3 +24,4 @@ Finally you can start the application, which must be done on both client and bac
 - **Frontend:**
     - Vite 5.2.0 ([documentation](https://vitejs.dev/))
     - React 18.2.0 ([documentation](https://legacy.reactjs.org/))
+    - React Rooter Dom 6.22.3 ([documentation](https://reactrouter.com/en/main))
